@@ -45,11 +45,11 @@ def test_pred_virginica2():
     payload = {
         "sepal_length": 8,
         "sepal_width": 1,
-        "petal_length": 0.1,
+        "petal_length": 1,
         "petal_width": 8,
     }
     with TestClient(app) as client:
         response = client.post("/predict_flower", json=payload)
         # asserting the correct response is received
         assert response.status_code == 200
-        assert response.json() == {"flower_class": "Iris Setosa"}
+        assert response.json() == {"flower_class": "Iris Setosa"} 
